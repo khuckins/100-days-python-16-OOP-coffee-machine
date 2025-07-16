@@ -7,6 +7,17 @@ class CoffeeMaker:
             "coffee": 100,
         }
 
+        self.drinks = [
+            "espresso",
+            "latte",
+            "capuccino"
+        ]
+        self.enabled = True
+
+    def prompt_order(self):
+        """Requests the user to input their order."""
+        return input(f"What would you like to drink? {"/".join(self.drinks)}\n")
+
     def report(self):
         """Prints a report of all resources."""
         print(f"Water: {self.resources['water']}ml")
@@ -27,3 +38,9 @@ class CoffeeMaker:
         for item in order.ingredients:
             self.resources[item] -= order.ingredients[item]
         print(f"Here is your {order.name} ☕️. Enjoy!")
+
+    def set_activation(self, new_state):
+        self.enabled = new_state
+    
+    def get_activation(self):
+        return self.enabled
