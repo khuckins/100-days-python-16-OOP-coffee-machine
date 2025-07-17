@@ -33,6 +33,9 @@ class MoneyMachine:
                 except ValueError:
                     print("Input must be a number. Input 'cancel' to cancel your order.")
                     res = input(f"How many {coin}?: ")
+                    if res == 'cancel':
+                        return coin_inserted
+
             self.money_received += coin_inserted * self.COIN_VALUES[coin]
             if self.money_received >= cost:
                 break
